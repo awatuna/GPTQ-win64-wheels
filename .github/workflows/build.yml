@@ -49,7 +49,7 @@ jobs:
           CUDA_HOME: ${{ steps.cuda-toolkit.outputs.CUDA_PATH }}
         run: |
           cd GPTQ-for-LLaMa
-          python cuda_setup.py install
+          python setup_cuda.py bdist_wheel
       - id: rename
         if: ${{ matrix.custom-suffix }}
         run: |
