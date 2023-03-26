@@ -32,7 +32,7 @@ jobs:
       - uses: ilammy/msvc-dev-cmd@v1
         id: msvc
         with:
-          vsversion: 2019
+          vsversion: '2019'
       - id: prepare-build
         run: |
           git clone https://github.com/qwopqwop200/GPTQ-for-LLaMa
