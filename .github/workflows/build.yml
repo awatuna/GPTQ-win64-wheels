@@ -68,6 +68,6 @@ jobs:
       - id: release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "*/*.zip"
+          artifacts: "*/*.whl"
           tag: ${{ github.run_id }}
           commit: ${{ github.sha }}
