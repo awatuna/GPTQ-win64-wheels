@@ -22,7 +22,7 @@ jobs:
           - os-version: windows-latest
             python-version: '3.10.9'
             cuda-version: '11.7.0'
-            torch-install-command: 'torch==1.13.1+cu117 torchvision==0.14.1+cu117 --extra-index-url https://download.pytorch.org/whl/cu117'
+            torch-install-command: 'torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117'
 
     steps:
       - uses: actions/setup-python@v4
@@ -35,7 +35,7 @@ jobs:
           vsversion: 2022
       - id: prepare-build
         run: |
-          git clone https://github.com/qwopqwop200/GPTQ-for-LLaMa
+          git clone -b cuda https://github.com/qwopqwop200/GPTQ-for-LLaMa
           cd GPTQ-for-LLaMa
           pip install ${{ matrix.torch-install-command }}
           pip install -r requirements.txt
