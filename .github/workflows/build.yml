@@ -21,8 +21,8 @@ jobs:
         include:
           - os-version: windows-latest
             python-version: '3.10.9'
-            cuda-version: '11.7.0'
-            torch-install-command: 'torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117'
+            cuda-version: '11.8.0'
+            torch-install-command: 'torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118'
 
     steps:
       - uses: actions/setup-python@v4
@@ -40,7 +40,7 @@ jobs:
           pip install ${{ matrix.torch-install-command }}
           pip install -r requirements.txt
           pip install wheel
-      - uses: Jimver/cuda-toolkit@v0.2.8
+      - uses: Jimver/cuda-toolkit@v0.2.10
         id: cuda-toolkit
         with:
           cuda: ${{ matrix.cuda-version }}
