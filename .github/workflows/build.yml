@@ -50,11 +50,6 @@ jobs:
         run: |
           cd GPTQ-for-LLaMa
           python setup_cuda.py bdist_wheel
-      - id: rename
-        if: ${{ matrix.custom-suffix }}
-        run: |
-          cd GPTQ-for-LLaMa/dist/
-          rename 'dev0' 'dev0+cu117' *.whl 
       - uses: actions/upload-artifact@v3
         with:
           name: GPTQ-for-LLaMa-wheel-${{ matrix.os-version }}-${{ matrix.python-version }}-${{ matrix.cuda-version }}
@@ -71,4 +66,3 @@ jobs:
           artifacts: "*/*.whl"
           tag: ${{ github.run_id }}
           commit: ${{ github.sha }}
-
